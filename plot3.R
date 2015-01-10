@@ -15,6 +15,8 @@ names(dt1)<-savedNames
 ## Add a new column with combined Date/Time as POSIXlt class
 dt1$DateTime<-strptime(paste(dt1$Date,dt1$Time,sep=" "),format="%d/%m/%Y %H:%M:%S")
 
+png(filename="./plot3.png",width=480, height=480)
+
 with(dt1,{
         plot(dt1$DateTime,dt1$Sub_metering_1,type="l",ylab="Energy sub metering",
                 xlab="", col="black")
@@ -23,6 +25,5 @@ with(dt1,{
         legend("topright", legend=names(dt1)[7:9], col=c("black","red","blue"),lwd=1)
         })
 
-## copy current plot to PNG file
-dev.copy(png,file="./plot3.png")
+## force the dev to create the png by turning off
 dev.off()

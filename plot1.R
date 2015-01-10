@@ -15,9 +15,10 @@ names(dt1)<-savedNames
 ## Add a new column with combined Date/Time as POSIXlt class
 dt1$DateTime<-strptime(paste(dt1$Date,dt1$Time,sep=" "),format="%d/%m/%Y %H:%M:%S")
 
+png(filename="./plot1.png",width=480, height=480)
+
 hist(dt1$Global_active_power,col="red",main="Global Active Power",
      xlab="Global Active Power (kilowatts)",ylim=c(0,1200))
 
-## copy current plot to PNG file
-dev.copy(png,file="./plot1.png")
+## force the dev to create the png by turning off
 dev.off()

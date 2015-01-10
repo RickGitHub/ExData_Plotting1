@@ -15,7 +15,7 @@ names(dt1)<-savedNames
 ## Add a new column with combined Date/Time as POSIXlt class
 dt1$datetime<-strptime(paste(dt1$Date,dt1$Time,sep=" "),format="%d/%m/%Y %H:%M:%S")
 
-png(filename="./plot4.png")
+png(filename="./plot4.png",width=480, height=480)
 
 ## Make 2 row, 2 column layout
 par(mfrow = c(2,2), mar=c(4,4,1,2), oma=c(1,2,1,1))
